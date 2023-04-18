@@ -49,6 +49,7 @@ const ItemList = ({ items, setItems }: Props) => {
                   className={`${
                     data.clear ? 'text-cs-gray-02' : ''
                   } text-sm text-cs-dark-gray`}
+                  onClick={() => {}}
                 >
                   {data.itemName}
                 </p>
