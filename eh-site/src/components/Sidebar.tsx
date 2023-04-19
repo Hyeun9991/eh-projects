@@ -8,8 +8,6 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  /* background-color: hotpink; */
-  transition: all 0.25s;
 `;
 
 const Navbar = styled.div`
@@ -27,7 +25,10 @@ const Navbar = styled.div`
 const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
-`;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;  
 
 const LogoBox = styled.div`
   position: absolute;

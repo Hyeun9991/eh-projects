@@ -22,6 +22,7 @@ const Container = styled.div<ContainerProps>`
     align-items: center;
     gap: 0.5rem;
     display: inline-block;
+    font-weight: 700;
 
     &:hover {
       opacity: 1;

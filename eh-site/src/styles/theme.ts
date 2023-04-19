@@ -1,6 +1,6 @@
 export const lightTheme = {
   primary: '#fff',
-  secondary: '#f8f8f8',
+  secondary: '#dbdbdb',
   textColor: '#212629',
   header: '#212629',
   headerNumber: '#fff',
@@ -9,7 +9,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   primary: '#000',
-  secondary: '#2c2839',
+  secondary: '#404040',
   textColor: '#fff',
   header: '#fff',
   headerNumber: '#585280',

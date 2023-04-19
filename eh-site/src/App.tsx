@@ -28,6 +28,3 @@ function App() {
 }
 
 export default App;
-
-// npm install styled-components
-// npm install @types/styled-components
