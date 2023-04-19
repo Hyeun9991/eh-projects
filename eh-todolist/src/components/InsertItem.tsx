@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { Item } from '../types/type';
-import { v4 as uuid } from 'uuid';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { v4 as uuid } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../modules/ItemReducer';
 
-interface Props {
-  items: Item[];
-  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
-}
-
-const InsertItem = ({ items, setItems }: Props) => {
+const InsertItem = () => {
+  const dispatch = useDispatch();
+  
   const [itemName, setItemName] = useState('');
 
   const changeItemName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +14,12 @@ const InsertItem = ({ items, setItems }: Props) => {
   };
 
   const clickButton = () => {
-    setItems([...items, { itemId: uuid(), itemName, clear: false }]);
+    const itemData = {
+      id: uuid(),
+      name: itemName,
+      clear: false,
+    };
+    dispatch(addItem(itemData.id, itemData.name, itemData.clear));
 
     setItemName('');
   };

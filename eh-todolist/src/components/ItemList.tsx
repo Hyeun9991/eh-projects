@@ -1,31 +1,25 @@
+import { useSelector } from 'react-redux';
 import { Item } from '../types/type';
 import { BsFillCheckCircleFill, BsFillTrash3Fill } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { clearItem, deleteItem } from '../modules/ItemReducer';
+import { RootState } from '../modules';
 
-interface Props {
-  items: Item[];
-  setItems: React.Dispatch<React.SetStateAction<Item[]>>;
-}
+const ItemList = () => {
+  const todos = useSelector((state: RootState) => state.itemReducer.todo);
+  const dispatch = useDispatch();
 
-const ItemList = ({ items, setItems }: Props) => {
   const clickDelete = (data: Item) => {
-    setItems(items.filter((item: Item) => item.itemId !== data.itemId));
+    dispatch(deleteItem(data.itemId));
   };
 
   const clickComplete = (data: Item) => {
-    setItems(
-      items.map((item: Item) => {
-        if (item.itemId === data.itemId) {
-          return { ...item, clear: !item.clear };
-        }
-
-        return item;
-      })
-    );
+    dispatch(clearItem(data.itemId));
   };
 
   return (
     <ul className="bg-cs-white/50 w-full rounded-lg flex flex-col">
-      {items.map((data: Item) => {
+      {todos.map((data: Item) => {
         return (
           <li key={data.itemId} className="border-b border-cs-gray px-1.5 py-2">
             <div className="flex items-center justify-between">
