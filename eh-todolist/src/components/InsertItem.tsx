@@ -19,6 +19,7 @@ const InsertItem = () => {
       name: itemName,
       clear: false,
     };
+    
     dispatch(addItem(itemData.id, itemData.name, itemData.clear));
 
     setItemName('');
