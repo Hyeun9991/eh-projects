@@ -17,7 +17,7 @@ const Container = styled.div`
 const ToggleButton = styled.button`
   border: none;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 25px;
   color: ${({ theme }) => theme.textColor};
   cursor: pointer;
   opacity: 0.4;
