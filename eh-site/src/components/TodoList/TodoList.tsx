@@ -7,7 +7,7 @@ import ItemList from './ItemList';
 const Container = styled.div`
   background-color: transparent;
   width: 500px;
-  height: 90%;
+  margin-bottom: 7%;
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -16,16 +16,15 @@ const Container = styled.div`
 
   /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 80%;
   }
 
   /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
   @media all and (max-width: 767px) {
-    width: 90%;
+    width: 80%;
   }
 `;
 
-const Title = styled.h1`
+const ProjectTitle = styled.h1`
   color: ${({ theme }) => theme.textColor};
   font-size: 24px;
 `;
@@ -34,7 +33,7 @@ const TodoList = () => {
   return (
     <Sidebar>
       <Container>
-        <Title>Todo List</Title>
+        <ProjectTitle>Todo List</ProjectTitle>
         <InsertItem />
         <ItemList />
       </Container>

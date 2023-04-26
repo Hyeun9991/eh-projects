@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import Calender from './components/Calender/Calender';
 import TodoList from './components/TodoList/TodoList';
 import Calculator from './components/Calculator/Calculator';
+import Weather from './components/Weather/Weather';
 
 function App() {
   const { theme } = useThemeContext();
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/calender" element={<Calender />} />
           <Route path="/todo" element={<TodoList />} />
+          <Route path="/weather" element={<Weather />} />
           <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </BrowserRouter>

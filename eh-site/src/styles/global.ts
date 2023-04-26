@@ -13,4 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     transition: all 0.25 line-break;
   }
+
+  .logo-font {
+    font-family: 'Petit Formal Script';
+  }
 `;

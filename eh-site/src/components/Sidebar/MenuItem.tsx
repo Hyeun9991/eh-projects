@@ -2,6 +2,24 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+interface Props {
+  path: string;
+  menuName: string;
+}
+
+const MenuItem = ({ path, menuName }: Props) => {
+  const { pathname } = useLocation();
+  const focus = pathname === path ? true : false;
+
+  return (
+    <Container focus={focus}>
+      <Link to={path}>{menuName}</Link>
+    </Container>
+  );
+};
+
+export default MenuItem;
+
 interface ContainerProps {
   focus: boolean;
 }
@@ -34,27 +52,9 @@ const Container = styled.div<ContainerProps>`
       return css`
         a {
           opacity: 1;
-          border-bottom: 0.15rem solid ${theme.textColor};
+          border-bottom: 0.2rem solid ${theme.textColor};
         }
       `;
     }
   }}
 `;
-
-interface Props {
-  path: string;
-  menuName: string;
-}
-
-const MenuItem = ({ path, menuName }: Props) => {
-  const { pathname } = useLocation();
-  const focus = pathname === path ? true : false;
-
-  return (
-    <Container focus={focus}>
-      <Link to={path}>{menuName}</Link>
-    </Container>
-  );
-};
-
-export default MenuItem;

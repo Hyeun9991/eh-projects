@@ -6,15 +6,23 @@ const Container = styled.div`
   ul {
     padding: 1rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+  @media all and (max-width: 767px) {
+    ul {
+      gap: 1rem;
+    }
   }
 `;
 
 const menuList = [
   { menuName: 'Home', path: '/' },
-  { menuName: 'Calendar', path: '/calender' },
+  { menuName: 'Weather', path: '/weather' },
   { menuName: 'Todo List', path: '/todo' },
+  { menuName: 'Calendar', path: '/calender' },
   { menuName: 'Calculator', path: '/calculator' },
 ];
 

@@ -1,49 +1,44 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { BsPlus } from 'react-icons/bs';
-import { addItem } from '../../modules/itemReducer';
-import { useDispatch } from 'react-redux';
-import { v4 as uuid } from 'uuid';
+import { FiSearch } from 'react-icons/fi';
 
-const InsertItem = () => {
-  const dispatch = useDispatch();
+interface Props {
+  setCityName: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const InsertCityName = ({ setCityName }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [itemName, setItemName] = useState('');
+  const [city, setCity] = useState('');
 
-  const changeItemName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setItemName(e.target.value);
+  const changeCityName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCity(e.target.value);
   };
 
-  const clickButton = () => {
-    const itemData = {
-      id: uuid(),
-      name: itemName,
-      clear: false,
-    };
-    dispatch(addItem(itemData.id, itemData.name, itemData.clear));
+  const clickChangeCity = () => {
+    setCityName(city);
 
-    setItemName('');
+    setCity('');
     inputRef.current?.focus();
   };
 
   return (
     <Container>
-      <InputTodoText
+      <InputCityName
         type="text"
-        placeholder="메모를 시작하세요."
-        value={itemName}
-        onChange={changeItemName}
         ref={inputRef}
+        onChange={changeCityName}
+        value={city}
+        placeholder='도시 입력'
       />
-      <AddButton onClick={clickButton}>
-        <BsPlus className="icon" />
-      </AddButton>
+      <SearchButton onClick={clickChangeCity}>
+        <FiSearch className="icon" />
+      </SearchButton>
     </Container>
   );
 };
 
-export default InsertItem;
+export default InsertCityName;
 
 const Container = styled.div`
   width: 100%;
@@ -51,7 +46,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-const InputTodoText = styled.input`
+const InputCityName = styled.input`
   background-color: transparent;
   border: none;
   border-bottom: 0.1rem solid ${({ theme }) => theme.secondary};
@@ -64,12 +59,11 @@ const InputTodoText = styled.input`
   &::placeholder {
     font-weight: 300;
   }
-
   &:focus {
     border-bottom: 0.1rem solid ${({ theme }) => theme.textColor};
   }
 `;
-const AddButton = styled.button`
+const SearchButton = styled.button`
   background-color: ${({ theme }) => theme.textColor};
   width: 2rem;
   height: 2rem;
@@ -81,7 +75,7 @@ const AddButton = styled.button`
   cursor: pointer;
 
   .icon {
-    font-size: 25px;
+    font-size: 14px;
     color: ${({ theme }) => theme.primary};
   }
 `;
