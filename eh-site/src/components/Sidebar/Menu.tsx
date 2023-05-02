@@ -1,47 +1,37 @@
-import React from 'react';
 import MenuItem from './MenuItem';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  ul {
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
-  @media all and (max-width: 767px) {
-    ul {
-      gap: 1rem;
-    }
-  }
-`;
-
-const menuList = [
-  { menuName: 'Home', path: '/' },
-  { menuName: 'Weather', path: '/weather' },
-  { menuName: 'Todo List', path: '/todo' },
-  { menuName: 'Calendar', path: '/calender' },
-  { menuName: 'Calculator', path: '/calculator' },
-];
+const menuList = [{ menuName: 'Home', path: '/' }];
 
 const Menu = () => {
   return (
-    <Container>
-      <ul>
-        {menuList.map((data) => {
-          return (
-            <MenuItem
-              key={data.menuName}
-              path={data.path}
-              menuName={data.menuName}
-            />
-          );
-        })}
-      </ul>
+    <Container className="menu-container">
+      <Title className="menu-title">Lists</Title>
+      {menuList.map((data) => {
+        return (
+          <MenuItem
+            key={data.menuName}
+            path={data.path}
+            menuName={data.menuName}
+          />
+        );
+      })}
     </Container>
   );
 };
 
 export default Menu;
+
+const Container = styled.ul`
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+`;
+const Title = styled.h1`
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+`;

@@ -5,6 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import InsertCityName from './InsertCityName';
 import PrintWeather from './PrintWeather';
+import InsertCityNameWidget from './widget/InsertCityNameWidget';
 
 const api = {
   url: process.env.REACT_APP_API_URL,
